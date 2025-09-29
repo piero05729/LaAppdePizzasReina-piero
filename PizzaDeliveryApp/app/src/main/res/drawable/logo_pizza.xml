@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Background Circle -->
+    <path
+        android:fillColor="@color/primary_red"
+        android:pathData="M60,10 C32.4,10 10,32.4 10,60 C10,87.6 32.4,110 60,110 C87.6,110 110,87.6 110,60 C110,32.4 87.6,10 60,10 Z" />
+    
+    <!-- Pizza Base -->
+    <path
+        android:fillColor="@color/accent_orange"
+        android:pathData="M60,25 C40.1,25 24,41.1 24,61 C24,80.9 40.1,97 60,97 C79.9,97 96,80.9 96,61 C96,41.1 79.9,25 60,25 Z" />
+    
+    <!-- Pizza Slice Lines -->
+    <path
+        android:strokeColor="@color/secondary_brown_dark"
+        android:strokeWidth="2"
+        android:pathData="M60,25 L60,97" />
+    <path
+        android:strokeColor="@color/secondary_brown_dark"
+        android:strokeWidth="2"
+        android:pathData="M24,61 L96,61" />
+    <path
+        android:strokeColor="@color/secondary_brown_dark"
+        android:strokeWidth="2"
+        android:pathData="M38.5,38.5 L81.5,83.5" />
+    <path
+        android:strokeColor="@color/secondary_brown_dark"
+        android:strokeWidth="2"
+        android:pathData="M81.5,38.5 L38.5,83.5" />
+    
+    <!-- Text "PIZZA" -->
+    <path
+        android:fillColor="@color/white"
+        android:pathData="M35,85 L35,90 L40,90 L40,87.5 L37.5,87.5 L37.5,85 Z M42,85 L42,90 L44.5,90 L44.5,85 Z M46,85 L46,90 L51,90 L51,87.5 L48.5,87.5 L48.5,85 Z M53,85 L53,90 L58,90 L58,87.5 L55.5,87.5 L55.5,85 Z M60,85 L60,90 L62.5,90 L62.5,88.75 L62.5,86.25 L65,86.25 L65,85 Z" />
+</vector>

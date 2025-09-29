@@ -1,0 +1,21 @@
+-- Bootstrap schema/user for application
+-- This script runs on startup (spring.sql.init.*) while connected as SYSTEM to XEPDB1.
+-- It creates user/schema PIZZABD if it does not exist and grants required privileges.
+
+WHENEVER SQLERROR CONTINUE;
+
+DECLARE
+  v_count INTEGER := 0;
+BEGIN
+  SELECT COUNT(*) INTO v_count FROM dba_users WHERE username = 'PIZZABD';
+  IF v_count = 0 THEN
+    EXECUTE IMMEDIATE 'CREATE USER PIZZABD IDENTIFIED BY PIZZABD';
+    EXECUTE IMMEDIATE 'ALTER USER PIZZABD DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP';
+    EXECUTE IMMEDIATE 'ALTER USER PIZZABD QUOTA UNLIMITED ON USERS';
+    EXECUTE IMMEDIATE 'GRANT CREATE SESSION, CREATE TABLE, CREATE SEQUENCE, CREATE VIEW, CREATE TRIGGER TO PIZZABD';
+    EXECUTE IMMEDIATE 'GRANT UNLIMITED TABLESPACE TO PIZZABD';
+  END IF;
+END;
+/
+
+-- Optional: ensure synonyms/permissions if needed later

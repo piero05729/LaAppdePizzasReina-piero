@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Pizza Delivery</string>
+    
+    <!-- Login Screen Strings -->
+    <string name="welcome_title">¡Bienvenido!</string>
+    <string name="welcome_subtitle">Inicia sesión para continuar</string>
+    <string name="usuario_hint">Usuario</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="login_button">INICIAR SESIÓN</string>
+    <string name="register_button">CREAR CUENTA NUEVA</string>
+    <string name="or_divider">O</string>
+    
+    <!-- Content Descriptions -->
+    <string name="logo_description">Logo de Pizza Delivery</string>
+    
+    <!-- Error Messages -->
+    <string name="error_empty_usuario">Por favor ingresa tu usuario</string>
+    <string name="error_empty_password">Por favor ingresa tu contraseña</string>
+    <string name="error_login_failed">Error al iniciar sesión. Verifica tus credenciales.</string>
+
+    <!-- Register Screen Strings -->
+    <string name="register_title">Crear cuenta</string>
+    <string name="register_usuario_hint">Usuario</string>
+    <string name="register_password_hint">Contraseña</string>
+    <string name="register_address_hint">Dirección</string>
+    <string name="register_terms">Acepto términos y condiciones</string>
+    <string name="register_create_button">CREAR CUENTA</string>
+    <string name="error_empty_address">Por favor ingresa tu dirección</string>
+    <string name="error_terms_required">Debes aceptar los términos y condiciones</string>
+    <string name="go_to_login">Ir a Login (test)</string>
+</resources>
