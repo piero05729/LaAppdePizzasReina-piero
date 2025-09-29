@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import com.example.back_pizza.dto.OfertaResponseDto;
 
 @RestController
 @RequestMapping("/api/ofertas")
@@ -19,13 +22,15 @@ public class OfertaController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Oferta>> listar() {
-        return ResponseEntity.ok(ofertaService.listar());
+    public ResponseEntity<List<OfertaResponseDto>> listar() {
+        List<OfertaResponseDto> dtos = ofertaService.listar().stream().map(this::toDto).collect(Collectors.toList());
+        return ResponseEntity.ok(dtos);
     }
 
     @GetMapping("/activas")
-    public ResponseEntity<List<Oferta>> listarActivas() {
-        return ResponseEntity.ok(ofertaService.listarActivas());
+    public ResponseEntity<List<OfertaResponseDto>> listarActivas() {
+        List<OfertaResponseDto> dtos = ofertaService.listarActivas().stream().map(this::toDto).collect(Collectors.toList());
+        return ResponseEntity.ok(dtos);
     }
 
     @GetMapping("/{id}")
@@ -58,5 +63,18 @@ public class OfertaController {
     @PatchMapping("/{id}/desactivar")
     public ResponseEntity<Oferta> desactivar(@PathVariable Long id) {
         return ResponseEntity.ok(ofertaService.desactivar(id));
+    }
+
+    private OfertaResponseDto toDto(Oferta o) {
+        OfertaResponseDto d = new OfertaResponseDto();
+        d.id = o.getId();
+        d.nombre = o.getNombre();
+        d.descripcion = o.getDescripcion();
+        d.tipoDescuento = o.getTipoDescuento() != null ? o.getTipoDescuento().name() : null;
+        d.valorDescuento = o.getValorDescuento();
+        d.fechaInicio = o.getFechaInicio() != null ? o.getFechaInicio().toString() : null;
+        d.fechaFin = o.getFechaFin() != null ? o.getFechaFin().toString() : null;
+        d.activo = o.getActivo();
+        return d;
     }
 }

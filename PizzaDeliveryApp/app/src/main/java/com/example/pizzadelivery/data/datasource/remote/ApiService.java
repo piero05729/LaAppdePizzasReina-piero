@@ -13,6 +13,7 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.DELETE;
+import retrofit2.http.PATCH;
 
 public interface ApiService {
 
@@ -34,6 +35,21 @@ public interface ApiService {
 
     @GET("api/ofertas")
     Call<List<OfertaDto>> listOfertas();
+
+    @POST("api/ofertas")
+    Call<OfertaDto> createOferta(@Body OfertaDto dto);
+
+    @PUT("api/ofertas/{id}")
+    Call<OfertaDto> updateOferta(@Path("id") Long id, @Body OfertaDto dto);
+
+    @DELETE("api/ofertas/{id}")
+    Call<Void> deleteOferta(@Path("id") Long id);
+
+    @PATCH("api/ofertas/{id}/activar")
+    Call<OfertaDto> activarOferta(@Path("id") Long id);
+
+    @PATCH("api/ofertas/{id}/desactivar")
+    Call<OfertaDto> desactivarOferta(@Path("id") Long id);
 
     // Productos (pizzas predeterminadas y CRUD)
     @GET("api/productos")

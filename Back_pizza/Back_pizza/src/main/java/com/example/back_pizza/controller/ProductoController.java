@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import com.example.back_pizza.dto.ProductoResponseDto;
 
 @RestController
 @RequestMapping("/api/productos")
@@ -19,8 +22,20 @@ public class ProductoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Producto>> listar() {
-        return ResponseEntity.ok(productoService.listar());
+    public ResponseEntity<List<ProductoResponseDto>> listar() {
+        List<ProductoResponseDto> dtos = productoService.listar().stream().map(p -> {
+            ProductoResponseDto dto = new ProductoResponseDto();
+            dto.idProducto = p.getIdProducto();
+            dto.nombre = p.getNombre();
+            dto.descripcion = p.getDescripcion();
+            dto.precio = p.getPrecio();
+            if (p.getCategoria() != null) {
+                dto.categoriaId = p.getCategoria().getIdCategoria();
+                dto.categoriaNombre = p.getCategoria().getNombre();
+            }
+            return dto;
+        }).collect(Collectors.toList());
+        return ResponseEntity.ok(dtos);
     }
 
     @GetMapping("/{id}")

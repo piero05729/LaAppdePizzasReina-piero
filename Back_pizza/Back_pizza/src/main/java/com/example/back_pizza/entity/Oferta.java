@@ -3,6 +3,7 @@ package com.example.back_pizza.entity;
 import jakarta.persistence.*;
 import com.example.back_pizza.enums.TipoDescuento;
 import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "oferta")
@@ -28,9 +29,11 @@ public class Oferta {
     private Double valorDescuento;
 
     @Column(name = "fecha_inicio", nullable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate fechaInicio;
 
     @Column(name = "fecha_fin")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate fechaFin;
 
     @Column(nullable = false)

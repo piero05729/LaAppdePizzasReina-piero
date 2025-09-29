@@ -1,9 +1,11 @@
 package com.example.back_pizza.entity;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "categoria_producto")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class CategoriaProducto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

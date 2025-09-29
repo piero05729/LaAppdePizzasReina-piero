@@ -39,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
         // ViewPager y TabLayout
         ViewPager2 viewPager = findViewById(R.id.viewPager);
         TabLayout tabLayout = findViewById(R.id.tabLayout);
-
-        // Adapter para los 3 fragments: Ofertas, Menú, Pizza Personalizada
         MainPagerAdapter adapter = new MainPagerAdapter(this);
         viewPager.setAdapter(adapter);
 
@@ -55,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 2:
                     tab.setText("Pizza Personalizada");
+                    break;
+                case 3:
+                    tab.setText("Ofertas Admin");
                     break;
             }
         }).attach();

@@ -8,6 +8,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.example.pizzadelivery.ui.tabs.MenuFragment;
 import com.example.pizzadelivery.ui.tabs.OfertasFragment;
 import com.example.pizzadelivery.ui.tabs.PizzaPersonalizadaFragment;
+import com.example.pizzadelivery.ui.tabs.OfertaCrudFragment;
 
 public class MainPagerAdapter extends FragmentStateAdapter {
 
@@ -24,13 +25,15 @@ public class MainPagerAdapter extends FragmentStateAdapter {
             case 1:
                 return new MenuFragment();
             case 2:
-            default:
                 return new PizzaPersonalizadaFragment();
+            case 3:
+            default:
+                return new OfertaCrudFragment();
         }
     }
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 4;
     }
 }

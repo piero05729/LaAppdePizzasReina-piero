@@ -16,13 +16,18 @@ import java.util.List;
 
 public class OfertaAdapter extends RecyclerView.Adapter<OfertaAdapter.VH> {
 
+    public interface OnItemClickListener { void onClick(OfertaDto item); }
+
     private final List<OfertaDto> items = new ArrayList<>();
+    private OnItemClickListener listener;
 
     public void setItems(List<OfertaDto> list) {
         items.clear();
         if (list != null) items.addAll(list);
         notifyDataSetChanged();
     }
+
+    public void setOnItemClickListener(OnItemClickListener l) { this.listener = l; }
 
     @NonNull
     @Override
@@ -40,6 +45,7 @@ public class OfertaAdapter extends RecyclerView.Adapter<OfertaAdapter.VH> {
         h.tvDescuento.setText(desc);
         String vig = (o.fechaInicio != null ? o.fechaInicio : "") + (o.fechaFin != null ? " - " + o.fechaFin : "");
         h.tvVigencia.setText(vig);
+        h.itemView.setOnClickListener(v -> { if (listener != null) listener.onClick(o); });
     }
 
     @Override

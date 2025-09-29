@@ -38,6 +38,9 @@ public class OfertaServiceImpl implements OfertaService {
     @Override
     public Oferta crear(Oferta oferta) {
         oferta.setId(null);
+        if (oferta.getActivo() == null) {
+            oferta.setActivo(true);
+        }
         return ofertaRepository.save(oferta);
     }
 

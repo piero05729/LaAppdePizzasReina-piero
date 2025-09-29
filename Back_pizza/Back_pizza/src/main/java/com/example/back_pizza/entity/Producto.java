@@ -1,6 +1,7 @@
 package com.example.back_pizza.entity;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "producto")
@@ -12,6 +13,7 @@ public class Producto {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_categoria")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private CategoriaProducto categoria;
 
     @Column(nullable = false, length = 100)
