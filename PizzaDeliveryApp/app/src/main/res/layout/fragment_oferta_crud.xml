@@ -49,27 +49,7 @@
             android:inputType="numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="Fecha inicio (YYYY-MM-DD)">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etFechaInicio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="Fecha fin (YYYY-MM-DD)">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etFechaFin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -102,13 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Eliminar" />
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnActivar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            android:text="Activar/Desactivar" />
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -41,13 +41,12 @@ public class OfertaCrudFragment extends Fragment {
         etDescripcion = root.findViewById(R.id.etDescripcion);
         etTipoDescuento = root.findViewById(R.id.etTipoDescuento);
         etValorDescuento = root.findViewById(R.id.etValorDescuento);
-        etFechaInicio = root.findViewById(R.id.etFechaInicio);
-        etFechaFin = root.findViewById(R.id.etFechaFin);
+
 
         MaterialButton btnCrear = root.findViewById(R.id.btnCrear);
         MaterialButton btnActualizar = root.findViewById(R.id.btnActualizar);
         MaterialButton btnEliminar = root.findViewById(R.id.btnEliminar);
-        MaterialButton btnActivar = root.findViewById(R.id.btnActivar);
+
 
         RecyclerView rv = root.findViewById(R.id.rvOfertas);
         rv.setLayoutManager(new LinearLayoutManager(requireContext()));
@@ -66,7 +65,7 @@ public class OfertaCrudFragment extends Fragment {
         btnCrear.setOnClickListener(v -> createOferta());
         btnActualizar.setOnClickListener(v -> updateOferta());
         btnEliminar.setOnClickListener(v -> deleteOferta());
-        btnActivar.setOnClickListener(v -> toggleActiva());
+
 
         loadList();
         return root;
